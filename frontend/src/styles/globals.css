@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 h-screen w-screen;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: hidden; /* Keep body overflow hidden — scrolling happens inside main */
+  }
+
+  ::selection {
+    @apply bg-blue-500/20;
+  }
+}
+
+@layer components {
+  .metric-value {
+    @apply font-mono font-bold tracking-tight text-slate-900;
+  }
+  
+  .formula-text {
+    @apply font-mono text-sm tracking-widest text-blue-600;
+  }
+
+  /* Range Slider */
+  .styled-slider {
+    @apply w-full h-1.5 bg-slate-200 rounded-full appearance-none outline-none cursor-pointer relative;
+  }
+  .styled-slider::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 rounded-full bg-blue-600 border-2 border-white shadow-md cursor-pointer transition-transform hover:scale-110 active:scale-95;
+  }
+  .styled-slider::-moz-range-thumb {
+    @apply appearance-none w-5 h-5 rounded-full bg-blue-600 border-2 border-white shadow-md cursor-pointer transition-transform hover:scale-110 active:scale-95;
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .screen-critical-flash {
+    animation: flash 4s infinite alternate;
+  }
+
+  @keyframes flash {
+    0% { box-shadow: inset 0 0 0px rgba(239, 68, 68, 0); }
+    100% { box-shadow: inset 0 0 80px rgba(239, 68, 68, 0.08); }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "festivalnet-simulator",
+  "version": "1.0.0",
+  "description": "5G Mass Event Network Stress Simulator",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "start": "concurrently \"cd backend && node index.js\" \"cd frontend && npm run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}
